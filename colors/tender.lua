@@ -253,21 +253,21 @@ for name, attrs in pairs({
 	end
 end
 
-vim.g.terminal_color_foreground = "palette.bg"
-vim.g.terminal_color_background = "palette.text"
-vim.g.terminal_color_0 = "palette.bg"
-vim.g.terminal_color_1 = "palette.red1"
-vim.g.terminal_color_2 = "palette.green1"
-vim.g.terminal_color_3 = "palette.yellow2"
-vim.g.terminal_color_4 = "palette.blue1"
-vim.g.terminal_color_5 = "palette.yellow1"
-vim.g.terminal_color_6 = "palette.blue2"
-vim.g.terminal_color_7 = "palette.text"
-vim.g.terminal_color_8 = "palette.darker"
-vim.g.terminal_color_9 = "palette.red1"
-vim.g.terminal_color_10 = "palette.green1"
-vim.g.terminal_color_11 = "palette.yellow2"
-vim.g.terminal_color_12 = "palette.blue1"
-vim.g.terminal_color_13 = "palette.yellow1"
-vim.g.terminal_color_14 = "palette.blue2"
-vim.g.terminal_color_15 = "palette.highlighted"
+vim.g.terminal_color_foreground = palette.bg
+vim.g.terminal_color_background = palette.text
+vim.g.terminal_color_0 = palette.bg
+vim.g.terminal_color_1 = palette.red1
+vim.g.terminal_color_2 = palette.green1
+vim.g.terminal_color_3 = palette.yellow2
+vim.g.terminal_color_4 = palette.blue1
+vim.g.terminal_color_5 = palette.yellow1
+vim.g.terminal_color_6 = palette.blue2
+vim.g.terminal_color_7 = palette.text
+vim.g.terminal_color_8 = palette.darker
+vim.g.terminal_color_9 = palette.red1
+vim.g.terminal_color_10 = palette.green1
+vim.g.terminal_color_11 = palette.yellow2
+vim.g.terminal_color_12 = palette.blue1
+vim.g.terminal_color_13 = palette.yellow1
+vim.g.terminal_color_14 = palette.blue2
+vim.g.terminal_color_15 = palette.highlighted
