@@ -7,290 +7,283 @@
 " Last Change: 2020/04/24 16:58
 " ===============================================================
 
-set background=dark
-hi clear
-if exists("syntax_on")
-  syntax reset
-endif
-let g:colors_name="tender"
+vim.cmd 'highlight clear'
+vim.cmd 'syntax reset'
+vim.g.colors_name="tender"
 
+for name, attrs in pairs {
+ColorColumn = { bg = #323232 }, 
+CursorColumn = { bg = #323232 }, 
+CursorLine = { bg = #323232 }, 
+CursorLineNr = { fg = #73cef4 }, 
+Directory = { fg = #b3deef }, 
+DiffAdd = { bg = #464632 }, 
+DiffChange = { bg = #335261 }, 
+DiffDelete = { fg = #f43753, bg = #79313c }, 
+DiffText = { style = { "reverse" } }, 
+ErrorMsg = { fg = #f43753, style = { "reverse" } }, 
+VertSplit = { fg = #282828, bg = #282828 }, 
+Folded = { fg = #666666, bg = #202020 }, 
+FoldColumn = { fg = #666666, bg = #202020 },
+SignColumn = { fg = #999999, bg = #282828 },
+IncSearch = { fg = #ffffff, bg = #000000, style = { "bold", "reverse" } },
+LineNr = { fg = #444444 }, 
+MatchParen = { fg = #f43753, style = { "bold" } }, 
+NonText = { fg = #444444 }, 
+Normal = { fg = #eeeeee, bg = #282828 }, 
+PMenu = { fg = #dadada, bg = #335261 }, 
+PMenuSel = { fg = #335261, bg = #c9d05c }, 
+PmenuSbar = { fg = #335261, bg = #335261 }, 
+PmenuThumb = { fg = #c9d05c, bg = #c9d05c }, 
+Question = { fg = #c9d05c }, 
+Search = { fg = #ffffff, style = { "underline", "bold" } },
+SpecialKey = { fg = #444444 }, 
+SpellBad = { fg = #f43753 }, 
+SpellLocal = { fg = #d3b987 }, 
+SpellCap = { fg = #ffc24b }, 
+SpellRare = { fg = #73cef4 }, 
+StatusLine = { fg = #1d1d1d, bg = #666666, style = { "bold" } }, 
+StatusLineNC = { fg = #999999, bg = #444444 }, 
+TabLine = { fg = #999999, bg = #444444 }, 
+TabLineFill = { bg = #444444 }, 
+TabLineSel = { fg = #c9d05c, style = { "bold" } }, 
+Title = { fg = #b3deef, style = { "bold" } }, 
+Visual = { bg = #293b44, style = { "bold" } }, 
+VisualNOS = { bg = #293b44, style = { "bold" } }, 
+WarningMsg = { fg = #f43753 }, 
+WildMenu = { fg = #282828, bg = #c9d05c, style = { "bold" } }, 
+Comment = { fg = #666666 }, 
+Constant = { fg = #ffc24b }, 
+String = { fg = #d3b987 }, 
+Character = { fg = #ffc24b }, 
+Boolean = { fg = #ffc24b }, 
+Number = { fg = #ffc24b }, 
+Float = { fg = #ffc24b }, 
+Identifier = { fg = #b3deef }, 
+Function = { fg = #b3deef }, 
+Statement = { fg = #b3deef }, 
+Conditional = { fg = #c9d05c }, 
+Operator = { fg = #f43753 }, 
+Exception = { fg = #f43753 }, 
+PreProc = { fg = #c9d05c }, 
+Type = { fg = #73cef4 }, 
+Special = { fg = #73cef4 }, 
+Underlined = { style = { "underline" } }, 
+Error = { fg = #eeeeee, bg = #f43753 }, 
+Todo = { fg = #f43753, style = { "bold" } }, 
+CocErrorSign = { fg = #f43753 }, 
+CocWarningSign = { fg = #d3b987 }, 
+CocHintSign = { fg = #73cef4 }, 
+CocInfoSign = { fg = #ffc24b }, 
+cssVendor = { fg = #9faa00 }, 
+cssTagName = { fg = #9faa00 }, 
+cssAttrComma = { fg = #eeeeee }, 
+cssBackgroundProp = { fg = #b3deef }, 
+cssBorderProp = { fg = #b3deef }, 
+cssBoxProp = { fg = #73cef4 }, 
+cssDimensionProp = { fg = #73cef4 }, 
+cssFontProp = { fg = #b3deef }, 
+cssPositioningProp = { fg = #73cef4 }, 
+cssTextProp = { fg = #b3deef }, 
+cssValueLength = { fg = #eeeeee }, 
+cssValueInteger = { fg = #eeeeee }, 
+cssValueNumber = { fg = #eeeeee }, 
+cssIdentifier = { fg = #9faa00 }, 
+cssIncludeKeyword = { fg = #ffc24b }, 
+cssImportant = { fg = #f43753 }, 
+cssClassName = { fg = #c9d05c }, 
+cssClassNameDot = { fg = #eeeeee }, 
+cssProp = { fg = #b3deef }, 
+cssAttr = { fg = #eeeeee }, 
+cssUnitDecorators = { fg = #eeeeee }, 
+cssNoise = { fg = #f43753 }, 
+diffRemoved = { fg = #f43753 }, 
+diffChanged = { fg = #b3deef }, 
+diffAdded = { fg = #c9d05c }, 
+diffSubname = { fg = #9faa00 }, 
+elmDelimiter = { fg = #eeeeee }, 
+elmOperator = { fg = #f43753 }, 
+FugitiveblameHash = { fg = #b3deef }, 
+FugitiveblameUncommitted = { fg = #f43753 }, 
+FugitiveblameTime = { fg = #c9d05c }, 
+FugitiveblameNotCommittedYet = { fg = #ffc24b }, 
+gitcommitBranch = { fg = #73cef4 }, 
+gitcommitDiscardedType = { fg = #c5152f }, 
+gitcommitSelectedType = { fg = #9faa00 }, 
+gitcommitHeader = { fg = #b3deef }, 
+gitcommitUntrackedFile = { fg = #ffc24b }, 
+gitcommitDiscardedFile = { fg = #f43753 }, 
+gitcommitSelectedFile = { fg = #c9d05c }, 
+helpHyperTextEntry = { fg = #c9d05c }, 
+helpHeadline = { fg = #73cef4 }, 
+helpSectionDelim = { fg = #666666 }, 
+helpNote = { fg = #f43753 }, 
+javaScriptOperator = { fg = #c9d05c }, 
+javaScriptBraces = { fg = #b3deef }, 
+javaScriptNull = { fg = #ffc24b }, 
+jsonEscape = { fg = #73cef4 }, 
+jsonNumber = { fg = #ffc24b }, 
+jsonBraces = { fg = #eeeeee }, 
+jsonNull = { fg = #ffc24b }, 
+jsonBoolean = { fg = #ffc24b }, 
+jsonKeywordMatch = { fg = #f43753 }, 
+jsonQuote = { fg = #eeeeee }, 
+jsonNoise = { fg = #f43753 }, 
+markdownH1 = { fg = #b3deef, style = { "bold" } }, 
+markdownHeadingRule = { fg = #f43753, style = { "bold" } }, 
+markdownHeadingDelimiter = { fg = #f43753, style = { "bold" } }, 
+markdownListMarker = { fg = #ffc24b }, 
+markdownBlockquote = { fg = #ffc24b }, 
+markdownRule = { fg = #c9d05c }, 
+markdownLinkText = { fg = #c9d05c }, 
+markdownLinkTextDelimiter = { fg = #b3deef }, 
+markdownLinkDelimiter = { fg = #b3deef }, 
+markdownIdDeclaration = { fg = #9faa00 }, 
+markdownAutomaticLink = { fg = #73cef4 }, 
+markdownUrl = { fg = #73cef4 }, 
+markdownUrlTitle = { fg = #d3b987 }, 
+markdownUrlDelimiter = { fg = #ffc24b }, 
+markdownUrlTitleDelimiter = { fg = #715b2f }, 
+markdownCodeDelimiter = { fg = #73cef4 }, 
+markdownCode = { fg = #d3b987 }, 
+markdownEscape = { fg = #73cef4 }, 
+markdownError = { fg = #f43753 }, 
+NERDTreeHelp = { fg = #eeeeee }, 
+NERDTreeHelpKey = { fg = #c9d05c }, 
+NERDTreeHelpCommand = { fg = #ffc24b }, 
+NERDTreeHelpTitle = { fg = #b3deef }, 
+NERDTreeUp = { fg = #c9d05c }, 
+NERDTreeCWD = { fg = #73cef4 }, 
+NERDTreeOpenable = { fg = #f43753 }, 
+NERDTreeClosable = { fg = #ffc24b }, 
+pugJavascriptOutputChar = { fg = #ffc24b }, 
+typescriptParens = { fg = #b3deef }, 
+typescriptLogicSymbols = { fg = #f43753 }, 
+typescriptReserved = { fg = #73cef4 }, 
+typescriptLabel = { fg = #c9d05c }, 
+typescriptFuncName = { fg = #c9d05c }, 
+typescriptCall = { fg = #ffc24b }, 
+typescriptVariable = { fg = #73cef4 }, 
+typescriptBinaryOp = { fg = #f43753 }, 
+typescriptAssign = { fg = #f43753 }, 
+typescriptObjectLabel = { fg = #b3deef }, 
+typescriptDotNotation = { fg = #f43753 }, 
+typescriptOperator = { fg = #f43753 }, 
+typescriptTernaryOp = { fg = #f43753 }, 
+typescriptTypeAnnotation = { fg = #f43753 }, 
+typescriptIdentifierName = { fg = #eeeeee }, 
+typescriptArrowFuncArg = { fg = #ffc24b }, 
+typescriptParamImpl = { fg = #ffc24b }, 
+typescriptRepeat = { fg = #c9d05c }, 
+typescriptStatementKeyword = { fg = #73cef4 }, 
+typescriptAliasKeyword = { fg = #c9d05c }, 
+typescriptInterfaceKeyword = { fg = #c9d05c }, 
+typescriptTemplateSB = { fg = #f43753 }, 
+typescriptMemberOptionality = { fg = #ffc24b }, 
+typescriptOptionalMark = { fg = #ffc24b }, 
+typescriptUnaryOp = { fg = #f43753 }, 
+GitGutterAdd = { fg = #c9d05c }, 
+GitGutterChange = { fg = #b3deef }, 
+GitGutterDelete = { fg = #f43753 }, 
+GitGutterChangeDelete = { fg = #f43753 }, 
+javaScriptOpSymbols = { fg = #f43753 }, 
+javaScriptParens = { fg = #b3deef }, 
+javaScriptDocTags = { fg = #6a6b3f }, 
+javaScriptDocSeeTag = { fg = #44778d }, 
+javaScriptBrowserObjects = { fg = #73cef4 }, 
+javaScriptDOMObjects = { fg = #73cef4 }, 
+javaScriptFuncArg = { fg = #ffc24b }, 
+jsParensIfElse = { fg = #b3deef }, 
+jsObjectKey = { fg = #b3deef }, 
+jsRepeat = { fg = #c9d05c }, 
+jsArrowFunction = { fg = #9faa00 }, 
+jsFunctionKey = { fg = #c9d05c }, 
+jsFuncName = { fg = #c9d05c }, 
+jsObjectFuncName = { fg = #c9d05c }, 
+jsNull = { fg = #ffc24b }, 
+jsObjectColon = { fg = #f43753 }, 
+jsParens = { fg = #b3deef }, 
+jsFuncParens = { fg = #b3deef }, 
+jsFuncArgs = { fg = #ffc24b }, 
+jsSpecial = { fg = #ffc24b }, 
+jsTemplateBraces = { fg = #f43753 }, 
+jsGlobalObjects = { fg = #73cef4 }, 
+jsGlobalNodeObjects = { fg = #b3deef }, 
+jsImport = { fg = #73cef4 }, 
+jsExport = { fg = #73cef4 }, 
+jsExportDefault = { fg = #c9d05c }, 
+jsExportDefaultGroup = { fg = #73cef4 }, 
+jsFrom = { fg = #73cef4 }, 
+plug2 = { fg = #c9d05c }, 
+plugH2 = { fg = #73cef4, style = { "bold" } }, 
+plugBracket = { fg = #b3deef }, 
+plugNumber = { fg = #ffc24b }, 
+plugDash = { fg = #ffc24b }, 
+plugStar = { fg = #d3b987 }, 
+plugMessage = { fg = #ffc24b }, 
+plugName = { fg = #b3deef }, 
+plugUpdate = { fg = #f43753 }, 
+plugEdge = { fg = #c9d05c }, 
+plugSha = { fg = #d3b987 }, 
+plugNotLoaded = { fg = #79313c }, 
+stylusVariable = { fg = #eeeeee }, 
+stylusClass = { fg = #c9d05c }, 
+stylusClassChar = { fg = #b3deef }, 
+stylusId = { fg = #c9d05c }, 
+stylusIdChar = { fg = #b3deef }, 
+cssVisualVal = { fg = #eeeeee }, 
+stylusImport = { fg = #ffc24b }, 
+vimCommentString = { fg = #715b2f }, 
+vimCommentTitle = { fg = #44778d }, 
+vimError = { fg = #eeeeee, bg = #f43753 }, 
+xmlNamespace = { fg = #ffc24b }, 
+xmlAttribPunct = { fg = #f43753 }, 
+xmlProcessingDelim = { fg = #f43753 }, 
+javascriptOpSymbol = { fg = #f43753 }, 
+javascriptDocNotation = { fg = #6a6b3f }, 
+javascriptDocNamedParamType = { fg = #44778d }, 
+javascriptDocParamName = { fg = #715b2f }, 
+javascriptDocParamType = { fg = #44778d }, 
+javascriptTemplateSB = { fg = #f43753 }, 
+javascriptRepeat = { fg = #c9d05c }, 
+javascriptObjectLabelColon = { fg = #f43753 }, 
+javascriptObjectMethodName = { fg = #c9d05c }, 
+javascriptFuncName = { fg = #c9d05c }, 
+yamlFlowString = { fg = #d3b987 }, 
+yamlFlowStringDelimiter = { fg = #eeeeee }, 
+yamlKeyValueDelimiter = { fg = #f43753 }, 
+} do
+  if type(attrs) == 'table' then
+    vim.api.nvim_set_hl(0, name, attrs)
+  else
+    vim.api.nvim_set_hl(0, name, { link = attrs })
+  end
+end
 
-let Italic = ""
-if exists('g:tender_italic')
-  let Italic = "italic"
-endif
-let g:tender_italic = get(g:, 'tender_italic', 0)
-
-let Bold = ""
-if exists('g:tender_bold')
-  let Bold = "bold"
-endif
-
-let g:tender_bold = get(g:, 'tender_bold', 0)
-hi ColorColumn guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
-hi CursorColumn guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
-hi CursorLine guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
-hi CursorLineNr guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Directory guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi DiffAdd guifg=NONE ctermfg=NONE guibg=#464632 ctermbg=238 gui=NONE cterm=NONE
-hi DiffChange guifg=NONE ctermfg=NONE guibg=#335261 ctermbg=239 gui=NONE cterm=NONE
-hi DiffDelete guifg=#f43753 ctermfg=203 guibg=#79313c ctermbg=237 gui=NONE cterm=NONE
-hi DiffText guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
-hi ErrorMsg guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
-hi VertSplit guifg=#282828 ctermfg=235 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
-hi Folded guifg=#666666 ctermfg=242 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE
-hi FoldColumn guifg=#666666 ctermfg=242 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE
-hi SignColumn guifg=#999999 ctermfg=246 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
-hi IncSearch guifg=#ffffff ctermfg=15 guibg=#000000 ctermbg=0 gui=Bold,reverse cterm=Bold,reverse
-hi LineNr guifg=#444444 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi MatchParen guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi NonText guifg=#444444 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Normal guifg=#eeeeee ctermfg=255 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
-hi PMenu guifg=#dadada ctermfg=253 guibg=#335261 ctermbg=239 gui=NONE cterm=NONE
-hi PMenuSel guifg=#335261 ctermfg=239 guibg=#c9d05c ctermbg=185 gui=NONE cterm=NONE
-hi PmenuSbar guifg=#335261 ctermfg=239 guibg=#335261 ctermbg=239 gui=NONE cterm=NONE
-hi PmenuThumb guifg=#c9d05c ctermfg=185 guibg=#c9d05c ctermbg=185 gui=NONE cterm=NONE
-hi Question guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Search guifg=#ffffff ctermfg=15 guibg=NONE ctermbg=NONE gui=underline,Bold cterm=underline,Bold
-hi SpecialKey guifg=#444444 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellBad guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellLocal guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellCap guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellRare guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StatusLine guifg=#1d1d1d ctermfg=234 guibg=#666666 ctermbg=242 gui=Bold cterm=Bold
-hi StatusLineNC guifg=#999999 ctermfg=246 guibg=#444444 ctermbg=238 gui=NONE cterm=NONE
-hi TabLine guifg=#999999 ctermfg=246 guibg=#444444 ctermbg=238 gui=NONE cterm=NONE
-hi TabLineFill guifg=NONE ctermfg=NONE guibg=#444444 ctermbg=238 gui=NONE cterm=NONE
-hi TabLineSel guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi Title guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi Visual guifg=NONE ctermfg=NONE guibg=#293b44 ctermbg=237 gui=Bold cterm=Bold
-hi VisualNOS guifg=NONE ctermfg=NONE guibg=#293b44 ctermbg=237 gui=Bold cterm=Bold
-hi WarningMsg guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi WildMenu guifg=#282828 ctermfg=235 guibg=#c9d05c ctermbg=185 gui=Bold cterm=Bold
-hi Comment guifg=#666666 ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Constant guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi String guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Character guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Boolean guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Number guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Float guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Identifier guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Function guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Statement guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Conditional guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Operator guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Exception guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi PreProc guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Type guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Special guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Underlined guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=underline cterm=underline
-hi Error guifg=#eeeeee ctermfg=255 guibg=#f43753 ctermbg=203 gui=NONE cterm=NONE
-hi Todo guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi CocErrorSign guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi CocWarningSign guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi CocHintSign guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi CocInfoSign guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssVendor guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssTagName guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssAttrComma guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssBackgroundProp guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssBorderProp guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssBoxProp guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssDimensionProp guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssFontProp guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssPositioningProp guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssTextProp guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssValueLength guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssValueInteger guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssValueNumber guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssIdentifier guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssIncludeKeyword guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssImportant guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssClassName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssClassNameDot guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssProp guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssAttr guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssUnitDecorators guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssNoise guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi diffRemoved guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi diffChanged guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi diffAdded guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi diffSubname guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi elmDelimiter guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi elmOperator guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi FugitiveblameHash guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi FugitiveblameUncommitted guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi FugitiveblameTime guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi FugitiveblameNotCommittedYet guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitBranch guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitDiscardedType guifg=#c5152f ctermfg=160 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitSelectedType guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitHeader guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitUntrackedFile guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitDiscardedFile guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi gitcommitSelectedFile guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi helpHyperTextEntry guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi helpHeadline guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi helpSectionDelim guifg=#666666 ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi helpNote guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptOperator guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptBraces guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptNull guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonEscape guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonNumber guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonBraces guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonNull guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonBoolean guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonKeywordMatch guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonQuote guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsonNoise guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownH1 guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi markdownHeadingRule guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi markdownHeadingDelimiter guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi markdownListMarker guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownBlockquote guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownRule guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownLinkText guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownLinkTextDelimiter guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownLinkDelimiter guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownIdDeclaration guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownAutomaticLink guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownUrl guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownUrlTitle guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownUrlDelimiter guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownUrlTitleDelimiter guifg=#715b2f ctermfg=58 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownCodeDelimiter guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownCode guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownEscape guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownError guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeHelp guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeHelpKey guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeHelpCommand guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeHelpTitle guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeUp guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeCWD guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeOpenable guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi NERDTreeClosable guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi pugJavascriptOutputChar guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptParens guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptLogicSymbols guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptReserved guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptLabel guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptFuncName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptCall guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptVariable guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptBinaryOp guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptAssign guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptObjectLabel guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptDotNotation guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptOperator guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptTernaryOp guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptTypeAnnotation guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptIdentifierName guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptArrowFuncArg guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptParamImpl guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptRepeat guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptStatementKeyword guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptAliasKeyword guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptInterfaceKeyword guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptTemplateSB guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptMemberOptionality guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptOptionalMark guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi typescriptUnaryOp guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi GitGutterAdd guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi GitGutterChange guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi GitGutterDelete guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi GitGutterChangeDelete guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptOpSymbols guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptParens guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptDocTags guifg=#6a6b3f ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptDocSeeTag guifg=#44778d ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptBrowserObjects guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptDOMObjects guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javaScriptFuncArg guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsParensIfElse guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsObjectKey guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsRepeat guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsArrowFunction guifg=#9faa00 ctermfg=142 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsFunctionKey guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsFuncName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsObjectFuncName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsNull guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsObjectColon guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsParens guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsFuncParens guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsFuncArgs guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsSpecial guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsTemplateBraces guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsGlobalObjects guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsGlobalNodeObjects guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsImport guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsExport guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsExportDefault guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsExportDefaultGroup guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi jsFrom guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plug2 guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugH2 guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=Bold cterm=Bold
-hi plugBracket guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugNumber guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugDash guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugStar guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugMessage guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugName guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugUpdate guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugEdge guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugSha guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi plugNotLoaded guifg=#79313c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi link SignifySignAdd GitGutterAdd
 hi link SignifySignDelete GitGutterDelete
 hi link SignifySignDeleteFirstLine SignifySignDelete
 hi link SignifySignChange GitGutterChange
 hi link SignifySignChangeDelete GitGutterChangeDelete
-hi stylusVariable guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi stylusClass guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi stylusClassChar guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi stylusId guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi stylusIdChar guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cssVisualVal guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi stylusImport guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi vimCommentString guifg=#715b2f ctermfg=58 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi vimCommentTitle guifg=#44778d ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi vimError guifg=#eeeeee ctermfg=255 guibg=#f43753 ctermbg=203 gui=NONE cterm=NONE
-hi xmlNamespace guifg=#ffc24b ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi xmlAttribPunct guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi xmlProcessingDelim guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptOpSymbol guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptDocNotation guifg=#6a6b3f ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptDocNamedParamType guifg=#44778d ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptDocParamName guifg=#715b2f ctermfg=58 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptDocParamType guifg=#44778d ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptTemplateSB guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptRepeat guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptObjectLabelColon guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptObjectMethodName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi javascriptFuncName guifg=#c9d05c ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi yamlFlowString guifg=#d3b987 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi yamlFlowStringDelimiter guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi yamlKeyValueDelimiter guifg=#f43753 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
-let g:terminal_color_foreground = "#282828"
-let g:terminal_color_background = "#eeeeee"
-let g:terminal_color_0 = "#282828"
-let g:terminal_color_1 = "#f43753"
-let g:terminal_color_2 = "#c9d05c"
-let g:terminal_color_3 = "#ffc24b"
-let g:terminal_color_4 = "#b3deef"
-let g:terminal_color_5 = "#d3b987"
-let g:terminal_color_6 = "#73cef4"
-let g:terminal_color_7 = "#eeeeee"
-let g:terminal_color_8 = "#1d1d1d"
-let g:terminal_color_9 = "#f43753"
-let g:terminal_color_10 = "#c9d05c"
-let g:terminal_color_11 = "#ffc24b"
-let g:terminal_color_12 = "#b3deef"
-let g:terminal_color_13 = "#d3b987"
-let g:terminal_color_14 = "#73cef4"
-let g:terminal_color_15 = "#ffffff"
+vim.g.terminal_color_foreground = "#282828"
+vim.g.terminal_color_background = "#eeeeee"
+vim.g.terminal_color_0 = "#282828"
+vim.g.terminal_color_1 = "#f43753"
+vim.g.terminal_color_2 = "#c9d05c"
+vim.g.terminal_color_3 = "#ffc24b"
+vim.g.terminal_color_4 = "#b3deef"
+vim.g.terminal_color_5 = "#d3b987"
+vim.g.terminal_color_6 = "#73cef4"
+vim.g.terminal_color_7 = "#eeeeee"
+vim.g.terminal_color_8 = "#1d1d1d"
+vim.g.terminal_color_9 = "#f43753"
+vim.g.terminal_color_10 = "#c9d05c"
+vim.g.terminal_color_11 = "#ffc24b"
+vim.g.terminal_color_12 = "#b3deef"
+vim.g.terminal_color_13 = "#d3b987"
+vim.g.terminal_color_14 = "#73cef4"
+vim.g.terminal_color_15 = "#ffffff"
 
 " ===================================
 " Generated by Estilo 1.4.1
