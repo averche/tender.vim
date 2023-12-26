@@ -4,7 +4,7 @@ vim.g.colors_name = "tender"
 
 local palette = require("tender.palettes.tender")
 
-for name, attrs in pairs({
+for group, attrs in pairs({
 	ColorColumn = { bg = palette.shadow },
 	CursorColumn = { bg = palette.shadow },
 	CursorLine = { bg = palette.shadow },
@@ -13,15 +13,15 @@ for name, attrs in pairs({
 	DiffAdd = { bg = palette.green4 },
 	DiffChange = { bg = palette.blue4 },
 	DiffDelete = { fg = palette.red1, bg = palette.red3 },
-	DiffText = { style = { "reverse" } },
-	ErrorMsg = { fg = palette.red1, style = { "reverse" } },
+	DiffText = { reverse = true },
+	ErrorMsg = { fg = palette.red1, reverse = true },
 	VertSplit = { fg = palette.bg, bg = palette.bg },
 	Folded = { fg = palette.grey2, bg = palette.dark },
 	FoldColumn = { fg = palette.grey2, bg = palette.dark },
 	SignColumn = { fg = palette.grey1, bg = palette.bg },
-	IncSearch = { fg = palette.highlighted, bg = palette.darkest, style = { "bold", "reverse" } },
+	IncSearch = { fg = palette.highlighted, bg = palette.darkest, bold = true, reverse = true },
 	LineNr = { fg = palette.grey3 },
-	MatchParen = { fg = palette.red1, style = { "bold" } },
+	MatchParen = { fg = palette.red1, bold = true },
 	NonText = { fg = palette.grey3 },
 	Normal = { fg = palette.text, bg = palette.bg },
 	PMenu = { fg = palette.pearl, bg = palette.blue4 },
@@ -29,22 +29,22 @@ for name, attrs in pairs({
 	PmenuSbar = { fg = palette.blue4, bg = palette.blue4 },
 	PmenuThumb = { fg = palette.green1, bg = palette.green1 },
 	Question = { fg = palette.green1 },
-	Search = { fg = palette.highlighted, style = { "underline", "bold" } },
+	Search = { fg = palette.highlighted, underline = true, bold = true },
 	SpecialKey = { fg = palette.grey3 },
 	SpellBad = { fg = palette.red1 },
 	SpellLocal = { fg = palette.yellow1 },
 	SpellCap = { fg = palette.yellow2 },
 	SpellRare = { fg = palette.blue2 },
-	StatusLine = { fg = palette.darker, bg = palette.grey2, style = { "bold" } },
+	StatusLine = { fg = palette.darker, bg = palette.grey2, bold = true },
 	StatusLineNC = { fg = palette.grey1, bg = palette.grey3 },
 	TabLine = { fg = palette.grey1, bg = palette.grey3 },
 	TabLineFill = { bg = palette.grey3 },
-	TabLineSel = { fg = palette.green1, style = { "bold" } },
-	Title = { fg = palette.blue1, style = { "bold" } },
-	Visual = { bg = palette.blue5, style = { "bold" } },
-	VisualNOS = { bg = palette.blue5, style = { "bold" } },
+	TabLineSel = { fg = palette.green1, bold = true },
+	Title = { fg = palette.blue1, bold = true },
+	Visual = { bg = palette.blue5, bold = true },
+	VisualNOS = { bg = palette.blue5, bold = true },
 	WarningMsg = { fg = palette.red1 },
-	WildMenu = { fg = palette.bg, bg = palette.green1, style = { "bold" } },
+	WildMenu = { fg = palette.bg, bg = palette.green1, bold = true },
 	Comment = { fg = palette.grey2 },
 	Constant = { fg = palette.yellow2 },
 	String = { fg = palette.yellow1 },
@@ -61,9 +61,9 @@ for name, attrs in pairs({
 	PreProc = { fg = palette.green1 },
 	Type = { fg = palette.blue2 },
 	Special = { fg = palette.blue2 },
-	Underlined = { style = { "underline" } },
+	Underlined = { underline = true },
 	Error = { fg = palette.text, bg = palette.red1 },
-	Todo = { fg = palette.red1, style = { "bold" } },
+	Todo = { fg = palette.red1, bold = true },
 	CocErrorSign = { fg = palette.red1 },
 	CocWarningSign = { fg = palette.yellow1 },
 	CocHintSign = { fg = palette.blue2 },
@@ -122,9 +122,9 @@ for name, attrs in pairs({
 	jsonKeywordMatch = { fg = palette.red1 },
 	jsonQuote = { fg = palette.text },
 	jsonNoise = { fg = palette.red1 },
-	markdownH1 = { fg = palette.blue1, style = { "bold" } },
-	markdownHeadingRule = { fg = palette.red1, style = { "bold" } },
-	markdownHeadingDelimiter = { fg = palette.red1, style = { "bold" } },
+	markdownH1 = { fg = palette.blue1, bold = true },
+	markdownHeadingRule = { fg = palette.red1, bold = true },
+	markdownHeadingDelimiter = { fg = palette.red1, bold = true },
 	markdownListMarker = { fg = palette.yellow2 },
 	markdownBlockquote = { fg = palette.yellow2 },
 	markdownRule = { fg = palette.green1 },
@@ -208,7 +208,7 @@ for name, attrs in pairs({
 	jsExportDefaultGroup = { fg = palette.blue2 },
 	jsFrom = { fg = palette.blue2 },
 	plug2 = { fg = palette.green1 },
-	plugH2 = { fg = palette.blue2, style = { "bold" } },
+	plugH2 = { fg = palette.blue2, bold = true },
 	plugBracket = { fg = palette.blue1 },
 	plugNumber = { fg = palette.yellow2 },
 	plugDash = { fg = palette.yellow2 },
@@ -246,11 +246,7 @@ for name, attrs in pairs({
 	yamlFlowStringDelimiter = { fg = palette.text },
 	yamlKeyValueDelimiter = { fg = palette.red1 },
 }) do
-	if type(attrs) == "table" then
-		vim.api.nvim_set_hl(0, name, attrs)
-	else
-		vim.api.nvim_set_hl(0, name, { link = attrs })
-	end
+	vim.api.nvim_set_hl(0, group, attrs)
 end
 
 vim.g.terminal_color_foreground = palette.bg
