@@ -40,7 +40,7 @@ tender.terminal = {
 
 tender.inactive = {
 	a = { bg = palette.gandalf, fg = palette.grey2 },
-	b = { bg = palette.gandalf, fg = palette.grey3, gui = "bold" },
+	b = { bg = palette.gandalf, fg = palette.grey3 },
 	c = { bg = palette.gandalf, fg = palette.grey3 },
 }
 
