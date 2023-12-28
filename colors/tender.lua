@@ -356,9 +356,9 @@ for group, attributes in pairs({
     ['@text.math']                = { fg = palette.blue1 },                      -- math environments (e.g. `$ ... $` in LaTeX)
     ['@text.environment']         = { fg = palette.blue1 },                      -- text environments of markup languages
     ['@text.environment.name']    = { link = '@keyword' },                       -- text indicating the type of an environment
---  ['@text.reference']           =                                              -- text references, footnotes, citations, etc.
---  ['@text.literal']             =                                              -- literal or verbatim text (e.g., inline code)
---  ['@text.literal.block']       =                                              -- literal or verbatim text as a stand-alone block
+    ['@text.reference']           = { link = 'Title' },                          -- text references, footnotes, citations, etc.
+    ['@text.literal']             = { link = 'String' },                         -- literal or verbatim text (e.g., inline code)
+    ['@text.literal.block']       = { link = 'String' },                         -- literal or verbatim text as a stand-alone block
     ['@text.todo']                = { link = 'Todo' },                           -- todo notes
     ['@text.note']                = { fg = palette.blue1 },                      -- info notes
     ['@text.warning']             = { link = 'WarningMsg' },                     -- warning notes
