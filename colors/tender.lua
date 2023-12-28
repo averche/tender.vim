@@ -316,7 +316,7 @@ for group, attributes in pairs({
 
     ['@repeat']                   = { link = '@keyword' },                       -- keywords related to loops (e.g. `for` / `while`)
 --  ['@debug']                    =                                              -- keywords related to debugging
-    ['@label']                    = { link = '@keyword' },                       -- GOTO and other labels (e.g. `label:` in C)
+    ['@label']                    = { fg = palette.blue1 },                      -- GOTO and other labels (e.g. `label:` in C)
     ['@include']                  = { link = '@keyword' },                       -- keywords for including modules (e.g. `import` / `from` in Python)
     ['@exception']                = { link = '@keyword' },                       -- keywords related to exceptions (e.g. `throw` / `catch`)
 
