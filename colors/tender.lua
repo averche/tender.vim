@@ -265,112 +265,145 @@ for group, attributes in pairs({
     -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#parser-configurations
 
     -- Misc
-    ['@comment']                  = 'Comment',                              -- line and block comments
-    ['@comment.documentation']    = 'Comment',                              -- comments documenting code
-    ['@error']                    = 'ErrorMsg',                             -- syntax/parser errors
-    ['@none']                     = { fg = palette.text },                  -- completely disable the highlight
-    ['@preproc']                  = 'PreProc',                              -- various preprocessor directives & shebangs
-    ['@define']                   = 'Function',                             -- preprocessor definition directives
-    ['@operator']                 = 'Operator',                             -- symbolic operators (e.g. `+` / `*`)
+    ['@comment']                  = { link = 'Comment' },                        -- line and block comments
+    ['@comment.documentation']    = { link = 'Comment' },                        -- comments documenting code
+    ['@error']                    = { link = 'ErrorMsg' },                       -- syntax/parser errors
+    ['@none']                     = { fg = palette.text },                       -- completely disable the highlight
+    ['@preproc']                  = { link = 'PreProc' },                        -- various preprocessor directives & shebangs
+    ['@define']                   = { link = 'Function' },                       -- preprocessor definition directives
+    ['@operator']                 = { link = 'Operator' },                       -- symbolic operators (e.g. `+` / `*`)
 
     -- Punctuation
-    ['@punctuation.delimiter']    = { fg = palette.blue1 },                 -- delimiters (e.g. `          --` / `.` / `,`)
-    ['@punctuation.bracket']      = { fg = palette.blue1 },                 -- brackets (e.g. `()` / `{}` / `[]`)
-    ['@punctuation.special']      = { fg = palette.blue1 },                 -- special symbols (e.g. `{}` in string interpolation)
+    ['@punctuation.delimiter']    = { fg = palette.blue1 },                      -- delimiters (e.g. `          --` / `.` / `,`)
+    ['@punctuation.bracket']      = { fg = palette.blue1 },                      -- brackets (e.g. `()` / `{}` / `[]`)
+    ['@punctuation.special']      = { fg = palette.blue1 },                      -- special symbols (e.g. `{}` in string interpolation)
 
     -- Literals
-    ['@string']                   = 'String',                               -- string literals
---  ['@string.documentation']     = ''                                      -- string documenting code (e.g. Python docstrings)
-    ['@string.regex']             = { fg = palette.yellow2 },               -- regular expressions
-    ['@string.escape']            = { fg = palette.blue2 },                 -- escape sequences
-    ['@string.special']           = 'Special',                              -- other special strings (e.g. dates)
+    ['@string']                   = { link = 'String' },                         -- string literals
+--  ['@string.documentation']     = ''                                           -- string documenting code (e.g. Python docstrings)
+    ['@string.regex']             = { fg = palette.yellow2 },                    -- regular expressions
+    ['@string.escape']            = { fg = palette.blue2 },                      -- escape sequences
+    ['@string.special']           = { link = 'Special' },                        -- other special strings (e.g. dates)
 
-    ['@character']                = 'String',                               -- character literals
-    ['@character.special']        = 'Special',                              -- special characters (e.g. wildcards)
+    ['@character']                = { link = 'String' },                         -- character literals
+    ['@character.special']        = { link = 'Special' },                        -- special characters (e.g. wildcards)
 
-    ['@boolean']                  = 'Boolean',                              -- boolean literals
-    ['@number']                   = 'Number',                               -- numeric literals
-    ['@float']                    = 'Float',                                -- floating-point number literals
+    ['@boolean']                  = { link = 'Boolean' },                        -- boolean literals
+    ['@number']                   = { link = 'Number' },                         -- numeric literals
+    ['@float']                    = { link = 'Float' },                          -- floating-point number literals
 
     -- Functions
-    ['@function']                 = 'Function',                             -- function definitions
-    ['@function.builtin']         = 'Function',                             -- built-in functions
-    ['@function.call']            = 'Function',                             -- function calls
-    ['@function.macro']           = 'PreProc',                              -- preprocessor macros
+    ['@function']                 = { link = 'Function' },                       -- function definitions
+    ['@function.builtin']         = { link = 'Function' },                       -- built-in functions
+    ['@function.call']            = { link = 'Function' },                       -- function calls
+    ['@function.macro']           = { link = 'PreProc' },                        -- preprocessor macros
 
-    ['@method']                   = 'Function',                             -- method definitions
-    ['@method.call']              = 'Function',                             -- method calls
+    ['@method']                   = { link = 'Function' },                       -- method definitions
+    ['@method.call']              = { link = 'Function' },                       -- method calls
 
-    ['@constructor']              = 'Function',                             -- constructor calls and definitions
-    ['@parameter']                = { fg = palette.text, bold = true },     -- parameters of a function
+    ['@constructor']              = { link = 'Function' },                       -- constructor calls and definitions
+    ['@parameter']                = { fg = palette.text, bold = true },          -- parameters of a function
 
     -- Keywords
-    ['@keyword']                  = 'Conditional',                          -- various keywords
-    ['@keyword.coroutine']        = 'Conditional',                          -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-    ['@keyword.function']         = 'Conditional',                          -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-    ['@keyword.operator']         = 'Operator',                             -- operators that are English words (e.g. `and` / `or`)
-    ['@keyword.return']           = 'Conditional',                          -- keywords like `return` and `yield`
+    ['@keyword']                  = { link = 'Conditional' },                    -- various keywords
+    ['@keyword.coroutine']        = { link = '@keyword' },                       -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+    ['@keyword.function']         = { link = '@keyword' },                       -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+    ['@keyword.operator']         = { link = 'Operator' },                       -- operators that are English words (e.g. `and` / `or`)
+    ['@keyword.return']           = { link = '@keyword' },                       -- keywords like `return` and `yield`
 
-    ['@conditional']              = 'Conditional',                          -- keywords related to conditionals (e.g. `if` / `else`)
-    ['@conditional.ternary']      = 'Operator',                             -- ternary operator (e.g. `?` / `:`)
+    ['@conditional']              = { link = '@keyword' },                       -- keywords related to conditionals (e.g. `if` / `else`)
+    ['@conditional.ternary']      = { link = 'Operator' },                       -- ternary operator (e.g. `?` / `:`)
 
-    ['@repeat']                   = 'Conditional',                          -- keywords related to loops (e.g. `for` / `while`)
---  ['@debug']                    =                                         -- keywords related to debugging
-    ['@label']                    = 'Conditional',                          -- GOTO and other labels (e.g. `label:` in C)
-    ['@include']                  = 'Conditional',                          -- keywords for including modules (e.g. `import` / `from` in Python)
-    ['@exception']                = 'Conditional',                          -- keywords related to exceptions (e.g. `throw` / `catch`)
+    ['@repeat']                   = { link = '@keyword' },                       -- keywords related to loops (e.g. `for` / `while`)
+--  ['@debug']                    =                                              -- keywords related to debugging
+    ['@label']                    = { link = '@keyword' },                       -- GOTO and other labels (e.g. `label:` in C)
+    ['@include']                  = { link = '@keyword' },                       -- keywords for including modules (e.g. `import` / `from` in Python)
+    ['@exception']                = { link = '@keyword' },                       -- keywords related to exceptions (e.g. `throw` / `catch`)
 
     -- Types
-    ['@type']                     = 'Type',                                 -- type or class definitions and annotations
-    ['@type.builtin']             = 'Type',                                 -- built-in types
-    ['@type.definition']          = 'Type',                                 -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
-    ['@type.qualifier']           = { fg = palette.blue1 },                 -- type qualifiers (e.g. `const`)
+    ['@type']                     = { link = 'Type' },                           -- type or class definitions and annotations
+    ['@type.builtin']             = { link = 'Type' },                           -- built-in types
+    ['@type.definition']          = { link = 'Type' },                           -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+    ['@type.qualifier']           = { fg = palette.blue1 },                      -- type qualifiers (e.g. `const`)
 
-    ['@storageclass']             = 'Conditional',                          -- modifiers that affect storage in memory or life-time
-    ['@attribute']                = 'Conditional',                          -- attribute annotations (e.g. Python decorators)
-    ['@field']                    = 'Type',                                 -- object and struct fields
-    ['@property']                 = 'Type',                                 -- similar to `['@field`']= '',       
+    ['@storageclass']             = { link = '@keyword' },                       -- modifiers that affect storage in memory or life-time
+    ['@attribute']                = { link = '@keyword' },                       -- attribute annotations (e.g. Python decorators)
+    ['@field']                    = { link = 'Type' },                           -- object and struct fields
+    ['@property']                 = { link = 'Type' },                           -- similar to `['@field`']= '',       
 
     -- Identifiers
 
-    ['@variable']                 = 'Identifier',                           -- various variable names
-    ['@variable.builtin']         = 'Conditional',                          -- built-in variable names (e.g. `this`)
+    ['@variable']                 = { link = 'Identifier' },                     -- various variable names
+    ['@variable.builtin']         = { link = '@keyword' },                       -- built-in variable names (e.g. `this`)
 
-    ['@constant']                 = 'Identifier',                           -- constant identifiers
-    ['@constant.builtin']         = 'Identifier',                           -- built-in constant values
-    ['@constant.macro']           = { fg = palette.blue1 },                 -- constants defined by the preprocessor
+    ['@constant']                 = { link = 'Identifier' },                     -- constant identifiers
+    ['@constant.builtin']         = { link = 'Identifier' },                     -- built-in constant values
+    ['@constant.macro']           = { fg = palette.blue1 },                      -- constants defined by the preprocessor
 
-    ['@namespace']                = 'Conditional',                          -- modules or namespaces
-    ['@symbol']                   = 'Conditional',                          -- symbols or atoms
+    ['@namespace']                = { link = '@keyword' },                       -- modules or namespaces
+    ['@symbol']                   = { link = '@keyword' },                       -- symbols or atoms
 
     -- Text
 
-    ['@text']                     = 'Identifier',                                -- non-structured text
-    ['@text.strong']              = { fg = palette.text, bold = true },          -- bold text
-    ['@text.emphasis']            = { fg = palette.text, italic = true },        -- text with emphasis
-    ['@text.underline']           = { fg = palette.text, underline = true },     -- underlined text
-    ['@text.strike']              = { fg = palette.text, strikethrough = true }, -- strikethrough text
-    ['@text.title']               = 'Title',                                     -- text that is part of a title
-    ['@text.quote']               = 'Identifier',                                -- text quotations
+    ['@text']                     = { link = 'Identifier' },                     -- non-structured text
+    ['@text.strong']              = { bold = true },                             -- bold text
+    ['@text.emphasis']            = { italic = true },                           -- text with emphasis
+    ['@text.underline']           = { underline = true },                        -- underlined text
+    ['@text.strike']              = { strikethrough = true },                    -- strikethrough text
+    ['@text.title']               = { link = 'Title' },                          -- text that is part of a title
+    ['@text.quote']               = { link = 'Identifier' },                     -- text quotations
     ['@text.uri']                 = { fg = palette.blue1, underline = true },    -- URIs (e.g. hyperlinks)
     ['@text.math']                = { fg = palette.blue1 },                      -- math environments (e.g. `$ ... $` in LaTeX)
     ['@text.environment']         = { fg = palette.blue1 },                      -- text environments of markup languages
-    ['@text.environment.name']    = 'Conditional',                               -- text indicating the type of an environment
+    ['@text.environment.name']    = { link = '@keyword' },                       -- text indicating the type of an environment
 --  ['@text.reference']           =                                              -- text references, footnotes, citations, etc.
 --  ['@text.literal']             =                                              -- literal or verbatim text (e.g., inline code)
 --  ['@text.literal.block']       =                                              -- literal or verbatim text as a stand-alone block
-    ['@text.todo']                = 'Todo',                                      -- todo notes
+    ['@text.todo']                = { link = 'Todo' },                           -- todo notes
     ['@text.note']                = { fg = palette.blue1 },                      -- info notes
-    ['@text.warning']             = 'WarningMsg',                                -- warning notes
-    ['@text.danger']              = 'ErrorMsg',                                  -- danger/error notes
-    ['@text.diff.add']            = 'GitSignsAdd',                               -- added text (for diff files)
-    ['@text.diff.delete']         = 'GitSignsDelete',                            -- deleted text (for diff files)
+    ['@text.warning']             = { link = 'WarningMsg' },                     -- warning notes
+    ['@text.danger']              = { link = 'ErrorMsg' },                       -- danger/error notes
+    ['@text.diff.add']            = { link = 'GitSignsAdd' },                    -- added text (for diff files)
+    ['@text.diff.delete']         = { link = 'GitSignsDelete' },                 -- deleted text (for diff files)
 
     -- Tags
 
---  ['@tag']                      = '',       -- XML tag names
---  ['@tag.attribute']            = '',       -- XML tag attributes
---  ['@tag.delimiter']            = '',       -- XML tag delimiters
+--  ['@tag']                      = { link = '' },                               -- XML tag names
+--  ['@tag.attribute']            = { link = '' },                               -- XML tag attributes
+--  ['@tag.delimiter']            = { link = '' },                               -- XML tag delimiters
+
+    -- LSP support
+
+    ['@lsp.type.boolean']                        = { link = '@boolean' },
+    ['@lsp.type.builtinType']                    = { link = '@type.builtin' },
+    ['@lsp.type.comment']                        = { link = '@comment' },
+    ['@lsp.type.enum']                           = { link = '@type' },
+    ['@lsp.type.enumMember']                     = { link = '@constant' },
+    ['@lsp.type.escapeSequence']                 = { link = '@string.escape' },
+    ['@lsp.type.formatSpecifier']                = { link = '@punctuation.special' },
+    ['@lsp.type.interface']                      = { link = 'Type' },
+    ['@lsp.type.keyword']                        = { link = '@keyword' },
+    ['@lsp.type.namespace']                      = { link = '@namespace' },
+    ['@lsp.type.number']                         = { link = '@number' },
+    ['@lsp.type.operator']                       = { link = '@operator' },
+    ['@lsp.type.parameter']                      = { link = '@parameter' },
+    ['@lsp.type.property']                       = { link = '@property' },
+    ['@lsp.type.selfKeyword']                    = { link = '@variable.builtin' },
+    ['@lsp.type.typeAlias']                      = { link = '@type.definition' },
+    ['@lsp.type.unresolvedReference']            = { link = '@error' },
+    ['@lsp.type.variable']                       = {}, -- use treesitter styles for regular variables
+    ['@lsp.typemod.class.defaultLibrary']        = { link = '@type.builtin' },
+    ['@lsp.typemod.enum.defaultLibrary']         = { link = '@type.builtin' },
+    ['@lsp.typemod.enumMember.defaultLibrary']   = { link = '@constant.builtin' },
+    ['@lsp.typemod.function.defaultLibrary']     = { link = '@function.builtin' },
+    ['@lsp.typemod.keyword.async']               = { link = '@keyword.coroutine' },
+    ['@lsp.typemod.macro.defaultLibrary']        = { link = '@function.builtin' },
+    ['@lsp.typemod.method.defaultLibrary']       = { link = '@function.builtin' },
+    ['@lsp.typemod.operator.injected']           = { link = '@operator' },
+    ['@lsp.typemod.string.injected']             = { link = '@string' },
+    ['@lsp.typemod.type.defaultLibrary']         = { link = '@type.builtin' },
+    ['@lsp.typemod.variable.defaultLibrary']     = { link = '@variable.builtin' },
+    ['@lsp.typemod.variable.injected']           = { link = '@variable' },
 }) do
 	if type(attributes) == "table" then
 		vim.api.nvim_set_hl(0, group, attributes)
