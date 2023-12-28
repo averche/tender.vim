@@ -274,15 +274,15 @@ for group, attributes in pairs({
     ['@operator']                 = { link = 'Operator' },                       -- symbolic operators (e.g. `+` / `*`)
 
     -- Punctuation
-    ['@punctuation.delimiter']    = { fg = palette.blue1 },                      -- delimiters (e.g. `          --` / `.` / `,`)
-    ['@punctuation.bracket']      = { fg = palette.blue1 },                      -- brackets (e.g. `()` / `{}` / `[]`)
-    ['@punctuation.special']      = { fg = palette.blue1 },                      -- special symbols (e.g. `{}` in string interpolation)
+    ['@punctuation.delimiter']    = { fg = palette.blue1 },                      -- delimiters (e.g. `;` / `.` / `,`)
+    ['@punctuation.bracket']      = { link = '@punctuation.delimiter' },         -- brackets (e.g. `()` / `{}` / `[]`)
+    ['@punctuation.special']      = { link = '@punctuation.delimiter' },         -- special symbols (e.g. `{}` in string interpolation)
 
     -- Literals
     ['@string']                   = { link = 'String' },                         -- string literals
 --  ['@string.documentation']     = ''                                           -- string documenting code (e.g. Python docstrings)
     ['@string.regex']             = { fg = palette.yellow2 },                    -- regular expressions
-    ['@string.escape']            = { fg = palette.blue2 },                      -- escape sequences
+    ['@string.escape']            = { link = '@punctuation.delimiter' },         -- escape sequences
     ['@string.special']           = { link = 'Special' },                        -- other special strings (e.g. dates)
 
     ['@character']                = { link = 'String' },                         -- character literals
@@ -328,17 +328,17 @@ for group, attributes in pairs({
 
     ['@storageclass']             = { link = '@keyword' },                       -- modifiers that affect storage in memory or life-time
     ['@attribute']                = { link = '@keyword' },                       -- attribute annotations (e.g. Python decorators)
-    ['@field']                    = { link = 'Type' },                           -- object and struct fields
-    ['@property']                 = { link = 'Type' },                           -- similar to `['@field`']= '',       
+    ['@field']                    = { link = '@parameter' },                     -- object and struct fields
+    ['@property']                 = { link = '@parameter' },                     -- similar to `['@field`']= '',       
 
     -- Identifiers
 
     ['@variable']                 = { link = 'Identifier' },                     -- various variable names
     ['@variable.builtin']         = { link = '@keyword' },                       -- built-in variable names (e.g. `this`)
 
-    ['@constant']                 = { link = 'Identifier' },                     -- constant identifiers
-    ['@constant.builtin']         = { link = 'Identifier' },                     -- built-in constant values
-    ['@constant.macro']           = { fg = palette.blue1 },                      -- constants defined by the preprocessor
+    ['@constant']                 = { link = 'Constant' },                       -- constant identifiers
+    ['@constant.builtin']         = { link = 'Constant' },                       -- built-in constant values
+    ['@constant.macro']           = { link = 'Constant' },                       -- constants defined by the preprocessor
 
     ['@namespace']                = { link = '@keyword' },                       -- modules or namespaces
     ['@symbol']                   = { link = '@keyword' },                       -- symbols or atoms
@@ -348,7 +348,7 @@ for group, attributes in pairs({
     ['@text']                     = { link = 'Identifier' },                     -- non-structured text
     ['@text.strong']              = { bold = true },                             -- bold text
     ['@text.emphasis']            = { italic = true },                           -- text with emphasis
-    ['@text.underline']           = { underline = true },                        -- underlined text
+    ['@text.underline']           = { link = 'Underlined' },                        -- underlined text
     ['@text.strike']              = { strikethrough = true },                    -- strikethrough text
     ['@text.title']               = { link = 'Title' },                          -- text that is part of a title
     ['@text.quote']               = { link = 'Identifier' },                     -- text quotations
@@ -380,8 +380,8 @@ for group, attributes in pairs({
     ['@lsp.type.enum']                           = { link = '@type' },
     ['@lsp.type.enumMember']                     = { link = '@constant' },
     ['@lsp.type.escapeSequence']                 = { link = '@string.escape' },
-    ['@lsp.type.formatSpecifier']                = { link = '@punctuation.special' },
-    ['@lsp.type.interface']                      = { link = 'Type' },
+    ['@lsp.type.formatSpecifier']                = { link = '@punctuation.delimiter' },
+    ['@lsp.type.interface']                      = { link = '@type' },
     ['@lsp.type.keyword']                        = { link = '@keyword' },
     ['@lsp.type.namespace']                      = { link = '@namespace' },
     ['@lsp.type.number']                         = { link = '@number' },
@@ -397,19 +397,16 @@ for group, attributes in pairs({
     ['@lsp.typemod.enumMember.defaultLibrary']   = { link = '@constant.builtin' },
     ['@lsp.typemod.function.defaultLibrary']     = { link = '@function.builtin' },
     ['@lsp.typemod.keyword.async']               = { link = '@keyword.coroutine' },
-    ['@lsp.typemod.macro.defaultLibrary']        = { link = '@function.builtin' },
+    ['@lsp.typemod.macro.defaultLibrary']        = { link = '@function.macro' },
     ['@lsp.typemod.method.defaultLibrary']       = { link = '@function.builtin' },
     ['@lsp.typemod.operator.injected']           = { link = '@operator' },
     ['@lsp.typemod.string.injected']             = { link = '@string' },
     ['@lsp.typemod.type.defaultLibrary']         = { link = '@type.builtin' },
     ['@lsp.typemod.variable.defaultLibrary']     = { link = '@variable.builtin' },
     ['@lsp.typemod.variable.injected']           = { link = '@variable' },
+
 }) do
-	if type(attributes) == "table" then
-		vim.api.nvim_set_hl(0, group, attributes)
-	else
-		vim.api.nvim_set_hl(0, group, { link = attributes })
-	end
+	vim.api.nvim_set_hl(0, group, attributes)
 end
 
 vim.g.terminal_color_foreground = palette.bg
