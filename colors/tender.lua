@@ -61,7 +61,7 @@ for group, attributes in pairs({
 	Exception                     = { fg = palette.red1 },
 	PreProc                       = { fg = palette.green1 },
 	Type                          = { fg = palette.blue2 },
-	Special                       = { fg = palette.red2 },
+	Special                       = { fg = palette.blue2 },
 	Underlined                    = { underline = true },
 	Error                         = { fg = palette.text, bg = palette.red1 },
 	Todo                          = { fg = palette.red1, bold = true },
