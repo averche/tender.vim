@@ -299,17 +299,17 @@ for group, attributes in pairs({
     ['@function.macro']           = 'PreProc',                              -- preprocessor macros
 
     ['@method']                   = 'Function',                             -- method definitions
-    ['@method.call']              =  { fg = palette.blue2 },                -- method calls
+    ['@method.call']              = { fg = palette.blue2 },                 -- method calls
 
     ['@constructor']              = 'Function',                             -- constructor calls and definitions
     ['@parameter']                = { fg = palette.text, bold = true },     -- parameters of a function
 
     -- Keywords
     ['@keyword']                  = 'Conditional',                          -- various keywords
-    ['@keyword.coroutine']        = { fg = palette.green2, bold = true },   -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+    ['@keyword.coroutine']        = 'Conditional',                          -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
     ['@keyword.function']         = 'Conditional',                          -- keywords that define a function (e.g. `func` in Go, `def` in Python)
     ['@keyword.operator']         = 'Operator',                             -- operators that are English words (e.g. `and` / `or`)
-    ['@keyword.return']           = { fg = palette.green2, bold = true },   -- keywords like `return` and `yield`
+    ['@keyword.return']           = 'Conditional',                          -- keywords like `return` and `yield`
 
     ['@conditional']              = 'Conditional',                          -- keywords related to conditionals (e.g. `if` / `else`)
     ['@conditional.ternary']      = 'Operator',                             -- ternary operator (e.g. `?` / `:`)
@@ -362,7 +362,7 @@ for group, attributes in pairs({
     ['@text.todo']                = 'Todo',                                      -- todo notes
     ['@text.note']                = { fg = palette.blue1 },                      -- info notes
     ['@text.warning']             = 'WarningMsg',                                -- warning notes
-    ['@text.danger']              = '',                                          -- danger/error notes
+    ['@text.danger']              = 'ErrorMsg',                                  -- danger/error notes
     ['@text.diff.add']            = 'GitSignsAdd',                               -- added text (for diff files)
     ['@text.diff.delete']         = 'GitSignsDelete',                            -- deleted text (for diff files)
 
