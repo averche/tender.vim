@@ -61,7 +61,7 @@ for group, attributes in pairs({
 	Exception                     = { fg = palette.red1 },
 	PreProc                       = { fg = palette.green1 },
 	Type                          = { fg = palette.blue2 },
-	Special                       = { fg = palette.blue2 },
+	Special                       = { fg = palette.red2 },
 	Underlined                    = { underline = true },
 	Error                         = { fg = palette.text, bg = palette.red1 },
 	Todo                          = { fg = palette.red1, bold = true },
@@ -294,12 +294,12 @@ for group, attributes in pairs({
 
     -- Functions
     ['@function']                 = 'Function',                             -- function definitions
-    ['@function.builtin']         = { fg = palette.blue2 },                 -- built-in functions
-    ['@function.call']            = { fg = palette.blue2 },                 -- function calls
+    ['@function.builtin']         = 'Function',                             -- built-in functions
+    ['@function.call']            = 'Function',                             -- function calls
     ['@function.macro']           = 'PreProc',                              -- preprocessor macros
 
     ['@method']                   = 'Function',                             -- method definitions
-    ['@method.call']              = { fg = palette.blue2 },                 -- method calls
+    ['@method.call']              = 'Function',                             -- method calls
 
     ['@constructor']              = 'Function',                             -- constructor calls and definitions
     ['@parameter']                = { fg = palette.text, bold = true },     -- parameters of a function
