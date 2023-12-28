@@ -334,21 +334,21 @@ for group, attributes in pairs({
     -- Identifiers
 
     ['@variable']                 = { link = 'Identifier' },                     -- various variable names
-    ['@variable.builtin']         = { link = '@keyword' },                       -- built-in variable names (e.g. `this`)
+    ['@variable.builtin']         = { link = 'Constant' },                       -- built-in variable names (e.g. `this`)
 
     ['@constant']                 = { link = 'Constant' },                       -- constant identifiers
     ['@constant.builtin']         = { link = 'Constant' },                       -- built-in constant values
     ['@constant.macro']           = { link = 'Constant' },                       -- constants defined by the preprocessor
 
-    ['@namespace']                = { link = '@keyword' },                       -- modules or namespaces
-    ['@symbol']                   = { link = '@keyword' },                       -- symbols or atoms
+    ['@namespace']                = { fg = palette.gandalf, bold = true },       -- modules or namespaces
+    ['@symbol']                   = { link = 'Constant' },                       -- symbols or atoms
 
     -- Text
 
     ['@text']                     = { link = 'Identifier' },                     -- non-structured text
     ['@text.strong']              = { bold = true },                             -- bold text
     ['@text.emphasis']            = { italic = true },                           -- text with emphasis
-    ['@text.underline']           = { link = 'Underlined' },                        -- underlined text
+    ['@text.underline']           = { link = 'Underlined' },                     -- underlined text
     ['@text.strike']              = { strikethrough = true },                    -- strikethrough text
     ['@text.title']               = { link = 'Title' },                          -- text that is part of a title
     ['@text.quote']               = { link = 'Identifier' },                     -- text quotations
@@ -372,7 +372,9 @@ for group, attributes in pairs({
 --  ['@tag.attribute']            = { link = '' },                               -- XML tag attributes
 --  ['@tag.delimiter']            = { link = '' },                               -- XML tag delimiters
 
-    -- LSP support
+    -----------------
+    -- LSP support --
+    -----------------
 
     ['@lsp.type.boolean']                        = { link = '@boolean' },
     ['@lsp.type.builtinType']                    = { link = '@type.builtin' },
